@@ -24,7 +24,7 @@ export default function App() {
   return (
     <>
     <h1>Login Page</h1>
-      <form>
+      <form onSubmit={submitHandler}>
         <label htmlFor="username">
           UserName:
           <input
@@ -32,6 +32,7 @@ export default function App() {
             onChange={changeHandler}
             name="username"
             type="text"
+            placeholder="username"
             required
           />
         </label>
@@ -44,12 +45,13 @@ export default function App() {
             name="password"
             onChange={changeHandler}
             type="password"
+            placeholder="password"
             required
           />
         </label>
         <br />
         <br />
-        <button onClick={submitHandler}>Submit</button>
+        <button>Submit</button>
       </form>
       {isSubmitted && err && <p>Welcome, user!</p>}
       {isSubmitted && !err && <p>Invalid username or password</p>}
