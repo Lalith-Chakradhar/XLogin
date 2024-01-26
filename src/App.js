@@ -28,6 +28,7 @@ export default function App() {
             onChange={changeHandler}
             name="username"
             type="text"
+            required
           />
         </label>
         <br />
@@ -39,13 +40,15 @@ export default function App() {
             name="password"
             onChange={changeHandler}
             type="password"
+            required
           />
         </label>
         <br />
         <br />
         <button>Submit</button>
       </form>
-      <p>{err ? "Welcome user" : ""}</p>
+      <p>{err ? "Welcome user" : "Invalid username or password"}</p>
     </>
   );
 }
+
