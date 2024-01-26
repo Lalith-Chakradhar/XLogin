@@ -2,7 +2,6 @@ import { useState } from "react";
 
 export default function App() {
   const [obj, setObj] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [err, setErr] = useState(false);
   const changeHandler = (e) => {
     // const name = e.target.name;
@@ -15,10 +14,8 @@ export default function App() {
     e.preventDefault();
     if (obj["username"] === "user" && obj["password"] === "password") {
       setErr(true);
-      setIsSubmitted(true);
     } else {
       setErr(false);
-      setIsSubmitted(true);
     }
   };
   return (
@@ -32,7 +29,6 @@ export default function App() {
             onChange={changeHandler}
             name="username"
             type="text"
-            placeholder="username"
             required
           />
         </label>
@@ -45,18 +41,17 @@ export default function App() {
             name="password"
             onChange={changeHandler}
             type="password"
-            placeholder="password"
             required
           />
         </label>
         <br />
         <br />
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
-      {isSubmitted && err && <p>Welcome, user!</p>}
-      {isSubmitted && !err && <p>Invalid username or password</p>}
+      <p>{err ? "Welcome, user!" : "Invalid username or password"}</p>
     </>
   );
 }
+
 
 
