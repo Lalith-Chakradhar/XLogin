@@ -25,13 +25,13 @@ export default function App() {
     }
   };
 
-  
+
   return (
     <>
     <h1>Login Page</h1>
       <form onSubmit={submitHandler}>
         <label htmlFor="username">
-          UserName:
+          UserName
           <input
             id="username"
             onChange={handleNameChange}
@@ -44,7 +44,7 @@ export default function App() {
         <br />
         <br />
         <label htmlFor="password">
-          Password:
+          Password
           <input
             id="password"
             name="password"
