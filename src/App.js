@@ -1,23 +1,31 @@
 import { useState } from "react";
 
 export default function App() {
-  const [obj, setObj] = useState({});
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [err, setErr] = useState(false);
-  const changeHandler = (e) => {
-    // const name = e.target.name;
-    // const value = e.target.value;
-    const { name, value } = e.target;
-    const newObj = { ...obj, [`${name}`]: value };
-    setObj(newObj);
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
   };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
-    if (obj["username"] === "user" && obj["password"] === "password") {
+    if (name === "user" && password === "password") {
       setErr(true);
+      setIsSubmitted(true);
     } else {
       setErr(false);
+      setIsSubmitted(true);
     }
   };
+
+  
   return (
     <>
     <h1>Login Page</h1>
@@ -26,9 +34,10 @@ export default function App() {
           UserName:
           <input
             id="username"
-            onChange={changeHandler}
+            onChange={handleNameChange}
             name="username"
             type="text"
+            placeholder="username"
             required
           />
         </label>
@@ -39,19 +48,19 @@ export default function App() {
           <input
             id="password"
             name="password"
-            onChange={changeHandler}
+            onChange={handlePasswordChange}
             type="password"
+            placeholder="password"
             required
           />
         </label>
         <br />
         <br />
-        <button type="submit">Submit</button>
+        <button>Submit</button>
       </form>
-      <p>{err ? "Welcome, user!" : "Invalid username or password"}</p>
+      {isSubmitted && err && <p>Welcome, user!</p>}
+      {isSubmitted && !err && <p>Invalid username or password</p>}
     </>
   );
 }
-
-
 
