@@ -51,9 +51,10 @@ export default function App() {
         <br />
         <button onClick={submitHandler}>Submit</button>
       </form>
-      {isSubmitted && err && <p>Welcome user</p>}
+      {isSubmitted && err && <p>Welcome, user!</p>}
       {isSubmitted && !err && <p>Invalid username or password</p>}
     </>
   );
 }
+
 
