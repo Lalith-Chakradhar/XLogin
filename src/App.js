@@ -20,7 +20,7 @@ export default function App() {
   };
   return (
     <>
-      <form onSubmit={submitHandler}>
+      <form>
         <label htmlFor="username">
           UserName:
           <input
@@ -45,7 +45,7 @@ export default function App() {
         </label>
         <br />
         <br />
-        <button>Submit</button>
+        <button onClick={submitHandler}>Submit</button>
       </form>
       <p>{err ? "Welcome user" : "Invalid username or password"}</p>
     </>
